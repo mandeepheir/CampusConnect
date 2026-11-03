@@ -1,0 +1,139 @@
+:host {
+  display: block;
+  min-height: 100svh;
+  background: #f8faf9;
+  color: #172b3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.signup-page {
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 30px 0 50px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #172b3a;
+  font-size: 19px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #087f68;
+  color: white;
+  font-size: 21px;
+}
+
+.signup-content {
+  max-width: 850px;
+  margin: 90px auto 0;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #087f68;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+h1 {
+  margin: 15px 0;
+  font-size: clamp(30px, 5vw, 43px);
+  letter-spacing: -1.5px;
+}
+
+.description {
+  max-width: 550px;
+  margin: 0 auto;
+  color: #5c6c68;
+  line-height: 1.7;
+}
+
+.account-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 45px;
+  text-align: left;
+}
+
+.account-card {
+  padding: 30px;
+  border: 1px solid #e4ece7;
+  border-radius: 16px;
+  background: white;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.account-card:hover {
+  transform: translateY(-4px);
+  border-color: #087f68;
+  box-shadow: 0 15px 35px rgba(31, 65, 53, 0.09);
+}
+
+.account-icon {
+  font-size: 34px;
+}
+
+.account-card h2 {
+  margin: 20px 0 10px;
+  font-size: 22px;
+}
+
+.account-card p {
+  min-height: 72px;
+  color: #5c6c68;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #087f68;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.login-prompt {
+  margin-top: 35px;
+  color: #5c6c68;
+  font-size: 14px;
+}
+
+.login-prompt a {
+  color: #087f68;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 650px) {
+  .signup-content {
+    margin-top: 55px;
+  }
+
+  .account-options {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+
+  .account-card p {
+    min-height: auto;
+  }
+}

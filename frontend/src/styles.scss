@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Colors */
+  --color-bg: #f8faf9;
+  --color-surface: #ffffff;
+  --color-text: #172b3a;
+  --color-text-strong: #253b39;
+  --color-muted: #4f605c;
+  --color-subtle: #5c6c68;
+  --color-primary: #087f68;
+  --color-primary-dark: #066653;
+  --color-primary-bright: #12a889;
+  --color-primary-soft: #e3f3ed;
+  --color-primary-tint: #e8f5ef;
+  --color-glow: #dff1e9;
+  --color-chip-bg: #f0f6f3;
+  --color-chip-text: #397568;
+  --color-border: #e9eeeb;
+  --color-border-soft: #edf1ee;
+  --color-border-card: #e8efeb;
+  --color-border-input: #dce6e1;
+  --color-blue-soft: #eaf0fb;
+  --color-blue: #3f62a0;
+
+  /* Shape and elevation */
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 17px;
+  --shadow-card: 0 25px 70px rgba(31, 65, 53, 0.11);
+  --shadow-float: 0 12px 35px rgba(31, 65, 53, 0.1);
+
+  /* Layout */
+  --container: 1280px;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

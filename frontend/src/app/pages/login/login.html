@@ -1,0 +1,72 @@
+
+<main class="login-page">
+  <a class="brand" routerLink="/">
+    <span class="brand-icon">C</span>
+    <span>Campus Connect</span>
+  </a>
+
+  <section class="login-card">
+    <div class="login-heading">
+      <p class="eyebrow">WELCOME BACK</p>
+      <h1>Good to see you again.</h1>
+      <p class="description">
+        Sign in to continue your journey from campus to career.
+      </p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-field">
+        <label for="email">Email address</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+        />
+
+        @if (loginForm.controls.email.touched &&
+             loginForm.controls.email.hasError('required')) {
+          <small class="error-message">Email address is required.</small>
+        }
+
+        @if (loginForm.controls.email.touched &&
+             loginForm.controls.email.hasError('email')) {
+          <small class="error-message">Please enter a valid email address.</small>
+        }
+      </div>
+
+      <div class="form-field">
+        <div class="password-label">
+          <label for="password">Password</label>
+        </div>
+
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+        />
+
+        @if (loginForm.controls.password.touched &&
+             loginForm.controls.password.hasError('required')) {
+          <small class="error-message">Password is required.</small>
+        }
+      </div>
+
+      <button class="login-button" type="submit">
+        Sign in <span aria-hidden="true">→</span>
+      </button>
+    </form>
+
+    <p class="signup-prompt">
+      Don't have an account?
+      <a routerLink="/signup">Create an account</a>
+    </p>
+
+    <a class="back-link" routerLink="/">
+      ← Back to home
+    </a>
+  </section>
+</main>

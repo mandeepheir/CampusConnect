@@ -1,0 +1,160 @@
+<main class="registration-page">
+  <header class="page-header">
+    <a class="brand" routerLink="/">
+      <span class="brand-icon">C</span>
+      <span>Campus Connect</span>
+    </a>
+
+    <a class="back-link" routerLink="/signup">← Back</a>
+  </header>
+
+  <section class="registration-container">
+    <div class="form-heading">
+      <p class="eyebrow">EMPLOYER ACCOUNT</p>
+      <h1>Create your company account</h1>
+      <p>
+        Join Campus Connect to showcase your company and discover emerging talent.
+      </p>
+    </div>
+
+    <form [formGroup]="employerForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-section">
+        <h2>Contact information</h2>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="firstName">First name</label>
+            <input id="firstName" type="text" formControlName="firstName"
+              placeholder="Enter first name" />
+            @if (employerForm.controls.firstName.touched &&
+                 employerForm.controls.firstName.invalid) {
+              <small>Please enter at least 2 characters.</small>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="lastName">Last name</label>
+            <input id="lastName" type="text" formControlName="lastName"
+              placeholder="Enter last name" />
+            @if (employerForm.controls.lastName.touched &&
+                 employerForm.controls.lastName.invalid) {
+              <small>Please enter at least 2 characters.</small>
+            }
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Work email</label>
+          <input id="email" type="email" formControlName="email"
+            placeholder="you@company.com" />
+          @if (employerForm.controls.email.touched &&
+               employerForm.controls.email.invalid) {
+            <small>Please enter a valid email address.</small>
+          }
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Account security</h2>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input id="password" type="password" formControlName="password"
+              placeholder="Minimum 8 characters" />
+            @if (employerForm.controls.password.touched &&
+                 employerForm.controls.password.invalid) {
+              <small>Password must contain at least 8 characters.</small>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" type="password"
+              formControlName="confirmPassword"
+              placeholder="Re-enter password" />
+            @if (employerForm.controls.confirmPassword.touched &&
+                 employerForm.controls.confirmPassword.invalid) {
+              <small>Please confirm your password.</small>
+            }
+            @if (employerForm.controls.confirmPassword.touched &&
+                 employerForm.errors?.['passwordMismatch']) {
+              <small>Passwords do not match.</small>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Company information</h2>
+
+        <div class="form-field">
+          <label for="companyName">Company name</label>
+          <input id="companyName" type="text" formControlName="companyName"
+            placeholder="Enter your company name" />
+          @if (employerForm.controls.companyName.touched &&
+               employerForm.controls.companyName.invalid) {
+            <small>Company name is required.</small>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="website">Company website <span>(optional)</span></label>
+          <input id="website" type="url" formControlName="website"
+            placeholder="https://www.company.com" />
+          @if (employerForm.controls.website.touched &&
+               employerForm.controls.website.invalid) {
+            <small>Enter a valid website URL beginning with http:// or https://.</small>
+          }
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="industry">Industry</label>
+            <select id="industry" formControlName="industry">
+              <option value="">Select industry</option>
+              <option value="Technology">Technology</option>
+              <option value="Finance">Finance</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Education">Education</option>
+              <option value="Manufacturing">Manufacturing</option>
+              <option value="Consulting">Consulting</option>
+              <option value="Other">Other</option>
+            </select>
+            @if (employerForm.controls.industry.touched &&
+                 employerForm.controls.industry.invalid) {
+              <small>Please select an industry.</small>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="companySize">Company size</label>
+            <select id="companySize" formControlName="companySize">
+              <option value="">Select company size</option>
+              <option value="1-10">1–10 employees</option>
+              <option value="11-50">11–50 employees</option>
+              <option value="51-200">51–200 employees</option>
+              <option value="201-500">201–500 employees</option>
+              <option value="501-1000">501–1,000 employees</option>
+              <option value="1000+">1,000+ employees</option>
+            </select>
+            @if (employerForm.controls.companySize.touched &&
+                 employerForm.controls.companySize.invalid) {
+              <small>Please select company size.</small>
+            }
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-button">
+        Create employer account →
+      </button>
+
+      <p class="login-prompt">
+        Already have an account?
+        <a routerLink="/login">Log in</a>
+      </p>
+    </form>
+  </section>
+</main>

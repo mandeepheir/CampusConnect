@@ -1,0 +1,404 @@
+:host {
+  display: block;
+  min-height: 100svh;
+  overflow-x: clip;
+
+  --navy: #172b3a;
+  --teal: #087f68;
+  --teal-dark: #066653;
+  --muted: #5c6c68;
+  --mint: #e7f3ee;
+  --border: #e9efeb;
+  --border-input: #dce6e1;
+  --radius-sm: 8px;
+  --ease: 0.2s ease;
+}
+
+:host * {
+  box-sizing: border-box;
+}
+
+/* ---------- ACCESSIBILITY HELPERS ---------- */
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--navy);
+  color: white;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+  transform: translateY(-200%); /* hidden above the screen until focused */
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+  width: min(1280px, calc(100% - 80px));
+  height: 82px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+
+  color: var(--navy);
+  font-size: 19px;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+  background: var(--teal);
+  color: white;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.nav-links a,
+.login-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 550;
+  text-decoration: none;
+  transition: color var(--ease);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"],
+.login-link:hover {
+  color: var(--teal);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.signup-button {
+  min-height: 44px;
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border-radius: var(--radius-sm);
+  background: var(--teal);
+  color: white;
+
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color var(--ease);
+}
+
+.signup-button:hover {
+  background: var(--teal-dark);
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  width: min(1280px, calc(100% - 80px));
+  min-height: calc(100svh - 82px);
+  margin: 0 auto;
+  padding: 35px 0 45px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero-content {
+  max-width: 590px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.hero h1 {
+  margin: 23px 0 20px;
+
+  color: var(--navy);
+  font-size: clamp(44px, 5vw, 67px);
+  font-weight: 780;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.hero h1 span {
+  color: var(--teal);
+}
+
+.hero-description {
+  max-width: 480px;
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.85;
+  text-wrap: pretty;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 32px;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 49px;
+  padding: 0 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease),
+    transform var(--ease);
+}
+
+.primary-button {
+  background: var(--teal);
+  color: white;
+}
+
+.primary-button span {
+  font-size: 18px;
+}
+
+.secondary-button {
+  border-color: var(--border-input);
+  background: white;
+  color: var(--navy);
+}
+
+/* Hover effects only on devices that really have a mouse */
+@media (hover: hover) {
+  .primary-button:hover {
+    background: var(--teal-dark);
+    transform: translateY(-2px);
+  }
+
+  .secondary-button:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+}
+
+/* ---------- SMALL MESSAGE ---------- */
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 28px 0 0;
+
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.note-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* ---------- STUDENT IMAGE ---------- */
+
+.hero-image {
+  position: relative;
+  min-width: 0;
+  height: min(510px, 65svh);
+
+  display: grid;
+  place-items: center;
+}
+
+.image-background {
+  position: absolute;
+  width: 88%;
+  height: 90%;
+  right: 0;
+  bottom: 0;
+
+  border-radius: 24px;
+  background: var(--mint);
+}
+
+.student-photo {
+  position: relative;
+  z-index: 1;
+
+  width: 90%;
+  height: 90%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 7px solid white;
+  border-radius: 24px;
+  background: var(--mint); /* shows a soft color while the image loads */
+
+  box-shadow: 0 22px 55px rgba(31, 65, 53, 0.13);
+}
+
+.image-caption {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 17px;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+
+  box-shadow: 0 12px 35px rgba(31, 65, 53, 0.1);
+}
+
+.caption-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+  background: var(--mint);
+  color: var(--teal);
+  font-size: 20px;
+}
+
+.image-caption div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.image-caption strong {
+  color: var(--navy);
+  font-size: 13px;
+}
+
+.image-caption div span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+  .navbar,
+  .hero {
+    width: calc(100% - 48px);
+  }
+
+  .nav-links {
+    gap: 17px;
+  }
+
+  .hero {
+    gap: 25px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-image {
+    height: 440px;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 680px) {
+  .navbar {
+    width: calc(100% - 36px);
+    height: auto;
+    min-height: 70px;
+    padding: 8px 0;
+
+    flex-wrap: wrap;
+    gap: 4px 13px;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+}
