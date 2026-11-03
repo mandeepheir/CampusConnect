@@ -1,0 +1,23 @@
+# Java / Maven
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+
+# Angular / Node
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/application-local.properties
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Operating system
+.DS_Store
+Thumbs.db
